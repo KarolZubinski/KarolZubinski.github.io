@@ -1,6 +1,6 @@
-/* ----------------------
-   PODSTAWOWE STYLE
-   ---------------------- */
+/* ======================================================
+   PODSTAWOWE STYLE – globalne
+====================================================== */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -9,22 +9,35 @@ body {
   color: #333;
 }
 
-/* Header (górny pasek) */
+/* typografia globalna */
+h1,
+h2 {
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+p,
+li {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ======================================================
+   HEADER
+====================================================== */
 header {
   background: #222;
   color: white;
   padding: 40px 20px;
   text-align: center;
-  /* domyślnie bez zaokrągleń; zaokrąglenia dodajemy tylko na mobile via media query */
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* ----------------------
-   UKŁAD GŁÓWNY POD HEADEREM
-   - .layout trzyma dwie kolumny: obrazek | treść
-   - max-width żeby nie rozciągać się na całą szerokość ekranu
-   ---------------------- */
+/* ======================================================
+   GŁÓWNY UKŁAD
+====================================================== */
 .layout {
   display: flex;
   gap: 40px;
@@ -34,37 +47,30 @@ header {
   padding: 40px 20px;
 }
 
-/* ----------------------
-   LEWA KOLUMNA: ZDJĘCIE
-   - flex-shrink:0 sprawia, że kontener obrazu nie kurczy się gdy brak miejsca
-   - position:relative because overlay is absolute inside
-   ---------------------- */
+/* ======================================================
+   LEWA KOLUMNA – ZDJĘCIE
+====================================================== */
 .side-image-container {
-  width: 320px; /* szerokość na desktop */
-  height: 430px; /* wysokość na desktop */
-  border-radius: 12px;
+  width: 320px;
+  height: 430px;
+  border-radius: 14px;
   overflow: hidden;
   background: #000;
   position: relative;
   flex-shrink: 0;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
 }
 
-/* obrazek dopasowany do kontenera */
 .side-image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
-/* ----------------------
-   NAKŁADKA "Click me"
-   - zasłania całe zdjęcie
-   - kliknięcie odpala funkcję revealImage()
-   ---------------------- */
+/* NAKŁADKA "Click me" */
 .side-image-cover {
   position: absolute;
-  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  inset: 0;
   background: rgba(0, 0, 0, 0.75);
   color: #fff;
   display: flex;
@@ -74,9 +80,14 @@ header {
   cursor: pointer;
   z-index: 10;
   user-select: none;
+  transition: background 0.3s;
 }
 
-/* klasa pomocnicza do animowanego pojawienia nakładki */
+.side-image-cover:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* animacja fade-in */
 .side-image-cover.fade-in {
   opacity: 0;
   animation: fadeInCover 1.2s forwards;
@@ -91,57 +102,68 @@ header {
   }
 }
 
-/* ----------------------
-   PRAWA KOLUMNA: TREŚĆ
-   ---------------------- */
+/* ======================================================
+   PRAWA KOLUMNA – SEKCJE
+====================================================== */
 .content-wrapper {
   flex: 1;
 }
 
 .section {
-  padding: 30px 20px;
-  background: white;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  padding: 30px 22px;
+  background: #ffffff;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ececec;
 }
 
-h2 {
+.section h2 {
   border-bottom: 2px solid #ddd;
   padding-bottom: 10px;
   margin-top: 0;
+  font-size: 22px;
 }
 
-ul {
-  line-height: 1.8;
-  margin: 0;
-  padding-left: 1.2em;
-}
-
-/* ----------------------
-   RESPONSYWNOŚĆ - MOBILE / TABLETY
-   - kluczowe: header ma marginesy po lewej i prawej (równe)
-   - zaokrąglenie dolnych rogów headera
-   - layout zmienia kierunek na column => obrazek nad treścią
-   ---------------------- */
+/* ======================================================
+   MOBILE / TABLETY (wersja premium)
+====================================================== */
 @media (max-width: 900px) {
-  /* marginesy i zaokrąglenia headera tylko na mobile */
+  /* HEADER — wygląda dobrze, tylko wyrównujemy marginesy */
   header {
-    margin: 0 10px; /* równe marginesy po obu stronach */
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    margin: 0 10px;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
   }
 
-  /* layout staje się kolumnowy - obrazek nad treścią */
+  /* GŁÓWNY KONTENER — KLUCZOWA POPRAWKA */
   .layout {
     flex-direction: column;
-    padding: 20px 10px; /* dostosowane do marginesu headera */
+    padding: 0; /* usuwamy padding boczny */
+    margin: 0 10px; /* identyczne marginesy jak header */
+    gap: 20px;
+    width: auto; /* NIE 100%, bo margin by się nie liczył */
   }
 
-  /* obrazek: szerokość bliska pełnej szerokości, proporcja zachowana */
+  /* ZDJĘCIE — już nie ma oddzielnych marginesów */
   .side-image-container {
-    width: 90%;
+    width: 100%;
     height: auto;
-    aspect-ratio: 3 / 4; /* wymusza proporcję bez twardej wysokości */
-    margin: 0 auto 16px auto; /* odstęp od headera i treści */
+    aspect-ratio: 3 / 4;
+    margin: 0; /* brak auto-center – kontener to ogarnia */
+    border-radius: 16px;
+  }
+
+  /* TREŚĆ — też ma pełną szerokość layoutu */
+  .content-wrapper {
+    width: 100%;
+  }
+
+  /* SEKCJE — już nie mają własnych marginesów, bo layout je daje */
+  .section {
+    padding: 22px 18px;
+    margin: 0 0 20px 0; /* margines tylko dolny */
+    border-radius: 16px;
+    width: 100%;
   }
 }
