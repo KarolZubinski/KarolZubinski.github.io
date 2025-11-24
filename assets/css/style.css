@@ -8,6 +8,12 @@ body {
   background: #f4f4f4;
   color: #333;
 }
+/* Naprawa szerokości — aby elementy stosowały marginesy kontenera */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 /* typografia globalna */
 h1,
@@ -128,42 +134,37 @@ header {
 /* ======================================================
    MOBILE / TABLETY (wersja premium)
 ====================================================== */
+
 @media (max-width: 900px) {
-  /* HEADER — wygląda dobrze, tylko wyrównujemy marginesy */
+
   header {
     margin: 0 10px;
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
+    margin-bottom: 20px;
   }
 
-  /* GŁÓWNY KONTENER — KLUCZOWA POPRAWKA */
   .layout {
     flex-direction: column;
-    padding: 0; /* usuwamy padding boczny */
-    margin: 0 10px; /* identyczne marginesy jak header */
+    padding: 0;
+    margin: 0 10px;     /* to trzyma marginesy */
     gap: 20px;
-    width: auto; /* NIE 100%, bo margin by się nie liczył */
   }
 
-  /* ZDJĘCIE — już nie ma oddzielnych marginesów */
   .side-image-container {
     width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 4;
-    margin: 0; /* brak auto-center – kontener to ogarnia */
+    aspect-ratio: 3/4;
     border-radius: 16px;
   }
 
-  /* TREŚĆ — też ma pełną szerokość layoutu */
   .content-wrapper {
     width: 100%;
   }
 
-  /* SEKCJE — już nie mają własnych marginesów, bo layout je daje */
   .section {
+    width: 100%;        /* teraz działa poprawnie dzięki box-sizing */
     padding: 22px 18px;
-    margin: 0 0 20px 0; /* margines tylko dolny */
+    margin-bottom: 20px;
     border-radius: 16px;
-    width: 100%;
   }
 }
