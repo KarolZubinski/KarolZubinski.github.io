@@ -137,6 +137,7 @@ header {
 
 @media (max-width: 900px) {
 
+  /* HEADER */
   header {
     margin: 0 10px;
     border-bottom-left-radius: 18px;
@@ -144,25 +145,32 @@ header {
     margin-bottom: 20px;
   }
 
+  /* KLUCZOWA POPRAWKA — OBLIGATORYJNE */
   .layout {
     flex-direction: column;
-    padding: 0;
-    margin: 0 10px;     /* to trzyma marginesy */
+    margin: 0 10px;      /* równy margines jak header */
+    padding: 0 !important;  /* usuwa stary padding 40px 20px */
+    width: calc(100% - 20px); /* 100% minus marginesy */
     gap: 20px;
   }
 
+  /* ZDJĘCIE — też korzysta z kontenera */
   .side-image-container {
     width: 100%;
     aspect-ratio: 3/4;
     border-radius: 16px;
+    margin: 0;
   }
 
+  /* TREŚĆ */
   .content-wrapper {
     width: 100%;
+    margin: 0;
   }
 
+  /* SEKCJE — 100% z marginesami kontenera */
   .section {
-    width: 100%;        /* teraz działa poprawnie dzięki box-sizing */
+    width: 100%;
     padding: 22px 18px;
     margin-bottom: 20px;
     border-radius: 16px;
