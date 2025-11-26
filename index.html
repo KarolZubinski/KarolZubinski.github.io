@@ -1,105 +1,26 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Moje CV</title>
+<head>
+  <meta charset="UTF-8">
+  <title>Karol QA Hero</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
 
-    <!--
-    Pełny plik z komentarzami po polsku.
-    - Layout bazuje na flexbox (header + pod nim .layout z dwiema kolumnami)
-    - Lewa kolumna: obrazek z nakładką ("Click me")
-    - Prawa kolumna: treść CV (sekcje)
-    - Na mobile: obrazek pojawia się POD headerem, wycentrowany
-    - Po kliknięciu nakładka znika, po 15s wraca z animacją fade-in
-  -->
+<body>
 
-    <!-- PODŁĄCZENIE ZEWNĘTRZNEGO CSS -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- TŁO – przewijający się kod -->
+  <pre id="bg-code"></pre>
 
-    <!-- PODŁĄCZENIE ZEWNĘTRZNEGO JS -->
-    <script src="assets/js/script.js" defer></script>
-  </head>
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Mam na imię Karol i testuję, żeby świat działał lepiej.</h1>
 
-  <body>
-    <!-- ====== HEADER (górny pasek) 
-       Uwagi:
-       - Na desktopie header jest pełnej szerokości
-       - Na mobile otrzyma równy margines po lewej/prawej (CSS w media query)
-  -->
-    <header>
-      <h1>Twoje Imię i Nazwisko</h1>
-      <p>Stanowisko / Specjalizacja</p>
-      <p>Email • Telefon • LinkedIn / GitHub</p>
-    </header>
+    <!-- WAŻNE: BEZ SPACJI NA KOŃCU -->
+    <p id="hero-line">
+      QA Engineer • Testowanie • Automatyzacje • Accessibility
+    </p>
+  </div>
 
-    <!-- ====== GŁÓWNY UKŁAD POD HEADEREM ======
-       .layout trzyma dwie kolumny: left image | right content
-       Dzięki temu obrazek będzie POD headerem, a obok treść na szerokich ekranach.
-  -->
-    <div class="layout">
-      <!-- LEWA KOLUMNA: obrazek z nakładką
-         Ważne: element ma id="imageCover" (skrypt go używa)
-    -->
-      <div class="side-image-container">
-        <!-- id oraz onclick są wymagane dla mechanizmu JS -->
-        <div id="imageCover" class="side-image-cover" onclick="revealImage()">
-          Click me
-        </div>
-
-        <!--
-        Ścieżka do obrazka:
-        - plik umieszczony w assets/images/do cv.jpg
-      -->
-        <img src="assets/images/do cv.jpg" alt="Moje zdjęcie" />
-      </div>
-
-      <!-- PRAWA KOLUMNA: zawartość CV -->
-      <div class="content-wrapper">
-        <!-- Sekcja: O mnie -->
-        <div class="section">
-          <h2>O mnie</h2>
-          <p>
-            Krótki opis Twojego doświadczenia, umiejętności i zawodowego
-            profilu.
-          </p>
-        </div>
-
-        <!-- Sekcja: Doświadczenie -->
-        <div class="section">
-          <h2>Doświadczenie</h2>
-          <ul>
-            <li>
-              <strong>Stanowisko – Firma</strong> (rok–rok)<br />Opis obowiązków
-              i osiągnięć.
-            </li>
-            <li>
-              <strong>Stanowisko – Firma</strong> (rok–rok)<br />Opis obowiązków
-              i osiągnięć.
-            </li>
-          </ul>
-        </div>
-
-        <!-- Sekcja: Umiejętności -->
-        <div class="section">
-          <h2>Umiejętności</h2>
-          <ul>
-            <li>Umiejętność 1</li>
-            <li>Umiejętność 2</li>
-            <li>Umiejętność 3</li>
-          </ul>
-        </div>
-
-        <!-- Sekcja: Edukacja -->
-        <div class="section">
-          <h2>Edukacja</h2>
-          <ul>
-            <li><strong>Szkoła / Studia</strong> — kierunek, lata</li>
-          </ul>
-        </div>
-      </div>
-      <!-- koniec .content-wrapper -->
-    </div>
-    <!-- koniec .layout -->
-  </body>
+  <script src="assets/js/script.js"></script>
+</body>
 </html>

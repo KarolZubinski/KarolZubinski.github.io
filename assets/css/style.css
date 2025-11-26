@@ -1,178 +1,77 @@
-/* ======================================================
-   PODSTAWOWE STYLE – globalne
-====================================================== */
+/* ===============================
+   GLOBAL DESKTOP STYLES
+================================= */
+
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f4f4f4;
-  color: #333;
-}
-/* Naprawa szerokości — aby elementy stosowały marginesy kontenera */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* typografia globalna */
-h1,
-h2 {
-  font-weight: 600;
-  letter-spacing: -0.3px;
-}
-
-p,
-li {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* ======================================================
-   HEADER
-====================================================== */
-header {
-  background: #222;
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* ======================================================
-   GŁÓWNY UKŁAD
-====================================================== */
-.layout {
-  display: flex;
-  gap: 40px;
-  width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-/* ======================================================
-   LEWA KOLUMNA – ZDJĘCIE
-====================================================== */
-.side-image-container {
-  width: 320px;
-  height: 430px;
-  border-radius: 14px;
-  overflow: hidden;
   background: #000;
-  position: relative;
-  flex-shrink: 0;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
+  font-family: Consolas, monospace;
+  overflow: hidden;
 }
 
-.side-image-container img {
+/* TŁO — przewijający się kod */
+#bg-code {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 200%;
+  opacity: 0.12;
+  color: #00ffcc;
+  white-space: pre;
+  font-size: 16px;
+  line-height: 20px;
+  pointer-events: none;
+  animation: scroll 28s linear infinite;
 }
 
-/* NAKŁADKA "Click me" */
-.side-image-cover {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  cursor: pointer;
+@keyframes scroll {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+
+/* HERO — wyśrodkowany, bez glow */
+.hero {
+  position: relative;
   z-index: 10;
-  user-select: none;
-  transition: background 0.3s;
+  width: 100%;
+  text-align: center;
+  margin-top: 26vh;
 }
 
-.side-image-cover:hover {
-  background: rgba(0, 0, 0, 0.6);
+.hero h1 {
+  color: #00eaff;
+  font-size: 48px;
+  font-weight: bold;
 }
 
-/* animacja fade-in */
-.side-image-cover.fade-in {
-  opacity: 0;
-  animation: fadeInCover 1.2s forwards;
+.hero p {
+  margin-top: 16px;
+  color: #b57dff;
+  font-size: 20px;
+  letter-spacing: 1px;
 }
 
-@keyframes fadeInCover {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 
-/* ======================================================
-   PRAWA KOLUMNA – SEKCJE
-====================================================== */
-.content-wrapper {
-  flex: 1;
-}
 
-.section {
-  padding: 30px 22px;
-  background: #ffffff;
-  border-radius: 12px;
-  margin-bottom: 24px;
-  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ececec;
-}
+/* ===============================
+   MOBILE: stacked text < 480px
+================================= */
 
-.section h2 {
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 10px;
-  margin-top: 0;
-  font-size: 22px;
-}
+@media (max-width: 480px) {
 
-/* ======================================================
-   MOBILE / TABLETY (wersja premium)
-====================================================== */
-
-@media (max-width: 900px) {
-
-  /* HEADER */
-  header {
-    margin: 0 10px;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
-    margin-bottom: 20px;
+  .hero p {
+    margin-top: 26px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.5;
   }
 
-  /* KLUCZOWA POPRAWKA — OBLIGATORYJNE */
-  .layout {
-    flex-direction: column;
-    margin: 0 10px;      /* równy margines jak header */
-    padding: 0 !important;  /* usuwa stary padding 40px 20px */
-    width: calc(100% - 20px); /* 100% minus marginesy */
-    gap: 20px;
-  }
-
-  /* ZDJĘCIE — też korzysta z kontenera */
-  .side-image-container {
-    width: 100%;
-    aspect-ratio: 3/4;
-    border-radius: 16px;
-    margin: 0;
-  }
-
-  /* TREŚĆ */
-  .content-wrapper {
-    width: 100%;
-    margin: 0;
-  }
-
-  /* SEKCJE — 100% z marginesami kontenera */
-  .section {
-    width: 100%;
-    padding: 22px 18px;
-    margin-bottom: 20px;
-    border-radius: 16px;
+  /* <br> oddziela linie, ale dodajemy odstępy */
+  .hero p br {
+    margin-bottom: 14px;
+    display: block;
+    content: "";
   }
 }
