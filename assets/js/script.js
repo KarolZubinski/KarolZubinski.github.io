@@ -1,4 +1,7 @@
-// Linie kodu (Playwright + logi QA)
+// ===============================
+// ANIMACJA KODU W TLE
+// ===============================
+
 const lines = [
   "POST /api/cart/add -> 201 Created",
   "Checking logs...",
@@ -25,29 +28,29 @@ const lines = [
   ""
 ];
 
-// Generowanie tła
 let output = "";
-for (let i = 0; i < 80; i++) {
+for (let i = 0; i < 60; i++) {
   output += lines[i % lines.length] + "\n";
 }
+
 document.getElementById("bg-code").textContent = output;
 
 
 // ===============================
-// MOBILE: zamiana na linie
+// MOBILE: PODZIAŁ NA LINIE
 // ===============================
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  if (window.innerWidth > 480) return; 
+
   const p = document.getElementById("hero-line");
   if (!p) return;
 
-  if (window.innerWidth <= 480) {
-    const raw = p.textContent.trim();
-
-    // dzielimy tylko po "•"
-    const parts = raw.split("•").map(t => t.trim()).filter(Boolean);
-
-    // wstawiamy <br> między elementami
-    p.innerHTML = parts.join("<br>");
-  }
+  p.innerHTML = `
+    QA Engineer<br>
+    Testowanie<br>
+    Automatyzacje<br>
+    Accessibility
+  `;
 });
