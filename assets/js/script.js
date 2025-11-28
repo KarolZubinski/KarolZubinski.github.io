@@ -2,9 +2,6 @@
 // ANIMACJA KODU W TLE
 // ===============================
 
-alert("MOBILE JS DZIALA");
-
-
 const lines = [
   "POST /api/cart/add -> 201 Created",
   "Checking logs...",
