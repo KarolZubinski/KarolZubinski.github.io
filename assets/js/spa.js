@@ -1,13 +1,22 @@
-document.querySelectorAll('.top-nav a').forEach(link => {
+const links = document.querySelectorAll('.top-nav a');
+const pages = document.querySelectorAll('.page');
+
+links.forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
 
-    const page = e.target.dataset.page;
+    const page = link.dataset.page;
+    if (!page) return;
 
-    // usuwamy active ze wszystkich stron
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-
-    // dodajemy active do właściwej sekcji
+    // przełącz sekcję
+    pages.forEach(p => p.classList.remove('active'));
     document.getElementById(`page-${page}`).classList.add('active');
+
+    // podświetl aktywny link
+    links.forEach(l => l.classList.remove('active-link'));
+    link.classList.add('active-link');
   });
 });
+
+// domyślnie – home aktywny
+document.querySelector('.top-nav a[data-page="home"]').classList.add('active-link');

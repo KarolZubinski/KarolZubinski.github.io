@@ -1,5 +1,5 @@
 // ===============================
-// ANIMACJA KODU W TLE
+// LINIJKI KODU W TLE
 // ===============================
 
 const lines = [
@@ -41,28 +41,20 @@ const lines = [
   ""
 ];
 
-// tworzymy jeden blok kodu
+// generujemy długi pasek kodu
 let block = "";
 for (let i = 0; i < 80; i++) {
   block += lines[i % lines.length] + "\n";
 }
-
-// powielamy 6x — tworzy się długi pasek (nigdy nie skończy się w trakcie animacji)
-const repeated = block.repeat(8);
-
-// wstawiamy wszystko do animowanego elementu
-document.getElementById("scroll-inner").textContent = repeated;
-
-
+document.getElementById("scroll-inner").textContent = block.repeat(6);
 
 
 // ===============================
-// MOBILE: PODZIAŁ NA LINIE
+// MOBILE: podział 4 słów na 4 linie
 // ===============================
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  if (window.innerWidth > 480) return; 
+  if (window.innerWidth > 480) return;
 
   const p = document.getElementById("hero-line");
   if (!p) return;

@@ -1,13 +1,23 @@
+/* ===============================
+   SEKCJE SPA
+================================= */
+
 .page {
   display: none;
+  position: relative;
+  z-index: 5;
   padding: 120px 30px;
   text-align: center;
-  color: #00eaff;
-  animation: fade 0.5s ease;
+  animation: fade 0.4s ease;
 }
 
 .page.active {
   display: block;
+}
+
+.inner-page {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .page h1 {
@@ -20,9 +30,36 @@
   color: #b57dff;
   font-family: Consolas, monospace;
   font-size: 18px;
+  line-height: 1.6;
 }
 
+.page a {
+  color: #00eaff;
+  text-decoration: none;
+  border-bottom: 1px dashed #00eaff;
+}
+
+.page a:hover {
+  border-bottom-style: solid;
+}
+
+/* animacja wejścia */
 @keyframes fade {
   from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .page {
+    padding: 100px 18px;
+  }
+
+  .page h1 {
+    font-size: 28px;
+  }
+
+  .page p {
+    font-size: 16px;
+  }
 }
