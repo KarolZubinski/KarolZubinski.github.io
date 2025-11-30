@@ -41,12 +41,19 @@ const lines = [
   ""
 ];
 
-let output = "";
-for (let i = 0; i < 60; i++) {
-  output += lines[i % lines.length] + "\n";
+// tworzymy jeden blok kodu
+let block = "";
+for (let i = 0; i < 80; i++) {
+  block += lines[i % lines.length] + "\n";
 }
 
-document.getElementById("bg-code").textContent = output;
+// powielamy 6x — tworzy się długi pasek (nigdy nie skończy się w trakcie animacji)
+const repeated = block.repeat(8);
+
+// wstawiamy wszystko do animowanego elementu
+document.getElementById("scroll-inner").textContent = repeated;
+
+
 
 
 // ===============================
