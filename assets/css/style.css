@@ -21,6 +21,16 @@ body {
   height: 100%;
   overflow: hidden;
   pointer-events: none;
+
+  #bg-code {
+  mask-image: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(0,0,0,1) 10%,
+    rgba(0,0,0,1) 90%,
+    transparent 100%
+  );
+}
+
 }
 
 /* przewijający się pasek kodu */
@@ -32,8 +42,8 @@ body {
   font-size: 14px;
   line-height: 18px;
   color: #2affdd;
-  opacity: 0.15;
-  animation: scrollLoop 80s linear infinite;
+  opacity: 0.14;
+  animation: scrollLoop 100s linear infinite;
 }
 
 @keyframes scrollLoop {
@@ -90,4 +100,14 @@ body {
     display: block;
     margin-bottom: 12px;
   }
+
+  @media (max-width: 480px) {
+  #scroll-inner {
+    white-space: normal;
+    word-break: break-all;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
 }
