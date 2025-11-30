@@ -65,4 +65,19 @@ document.addEventListener("DOMContentLoaded", () => {
     Automatyzacje<br>
     Accessibility
   `;
+
+  // MOBILE: rozbijamy nagłówek na 3 linie
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.innerWidth > 480) return;
+
+  const title = document.getElementById("hero-title");
+  if (!title) return;
+
+  title.innerHTML = `
+    Odkrywam to,<br>
+    co nie działa,<br>
+    zanim zrobi to użytkownik.
+  `;
+});
+
 });
