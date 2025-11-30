@@ -20,7 +20,7 @@ html, body {
   position: fixed;
   inset: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   pointer-events: none;
 
@@ -70,7 +70,7 @@ html, body {
   z-index: 10;
   width: 100%;
   text-align: center;
-  margin-top: 26vh;
+  margin-top: 26dvh;
   padding: 0 20px;
 }
 
@@ -96,22 +96,26 @@ html, body {
 @media (max-width: 480px) {
   
   /* HERO */
+@media (max-width: 480px) {
   .hero {
-    margin-top: 20vh;
+    margin-top: 80px;     /* zamiast 20vh */
     padding: 0 16px;
   }
 
   #hero-title {
     font-size: 26px;
     line-height: 1.3;
-    word-break: keep-all;
+    text-align: center;
   }
 
   #hero-line {
     margin-top: 22px;
     font-size: 18px;
     line-height: 1.5;
+    text-align: center;
   }
+}
+
 
   #scroll-inner {
     font-size: 12px;
@@ -119,3 +123,25 @@ html, body {
     max-width: 90vw;   /* jeszcze większa pewność */
   }
 }
+
+/* ===============================
+   FIX: usunięcie pionowego scrolla
+   podczas zmiany sekcji SPA
+================================= */
+
+body.loading,
+body.loading * {
+  overflow: hidden !important;
+}
+
+.page {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+html.no-scroll,
+html.no-scroll body {
+  overflow: hidden !important;
+  height: 100%;
+}
+

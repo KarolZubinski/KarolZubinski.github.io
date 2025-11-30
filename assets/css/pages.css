@@ -6,10 +6,17 @@
   display: none;
   position: relative;
   z-index: 5;
-  padding: 100px 16px;   /* było 120px 30px — powód scrolla */
+
+  /* 🔥 kluczowe — brak flickera */
+  min-height: 100dvh;
+  box-sizing: border-box;
+
+  padding: 100px 16px;
   text-align: center;
   animation: fade 0.4s ease;
+
   max-width: 100vw;
+  overflow-x: hidden; /* dodatkowe zabezpieczenie */
 }
 
 .page.active {
@@ -44,15 +51,25 @@
   border-bottom-style: solid;
 }
 
+/* ===============================
+   ANIMACJA — BEZ translateY
+   (to usuwa flicker scrolla!)
+================================= */
+
 @keyframes fade {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
+
+/* ===============================
+   MOBILE
+================================= */
 
 @media (max-width: 480px) {
 
   .page {
-    padding: 80px 12px;  /* bezpieczne, nie wyjedzie */
+    padding: 80px 12px;
+    min-height: 100dvh; /* ponownie — kluczowe */
     max-width: 100vw;
   }
 

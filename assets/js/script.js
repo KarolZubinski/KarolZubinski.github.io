@@ -1,6 +1,10 @@
 // ===============================
 // LINIJKI KODU W TLE
 // ===============================
+// Usunięcie blokady scrolla po pełnym renderze
+window.addEventListener("load", () => {
+  document.documentElement.classList.remove("no-scroll");
+});
 
 const lines = [
   "POST /api/cart/add -> 201 Created",
@@ -28,7 +32,7 @@ const lines = [
   "Engineer enters debug mode… coffee level: CRITICAL",
   "Applying hotfix: added semicolon of destiny",
   "CI bot whispers: “are you sure about that?”",
-  "checkout-service: \"I was not prepared for this...\"",
+  'checkout-service: "I was not prepared for this..."',
   "POST /api/coffee/refill -> 418 I'm a teapot",
   "Running tests again, hoping for a miracle…",
   "[WARN] testFlakyTest() is feeling moody today",
@@ -38,7 +42,7 @@ const lines = [
   "[INFO] System morale: HIGH",
   "[PASS] testUniverseMakesSense() — unexpectedly",
   "Preparing deploy… summoning senior engineer for moral support",
-  ""
+  "",
 ];
 
 let block = "";
@@ -46,7 +50,6 @@ for (let i = 0; i < 80; i++) {
   block += lines[i % lines.length] + "\n";
 }
 document.getElementById("scroll-inner").textContent = block.repeat(6);
-
 
 // ===============================
 // MOBILE – hero title + hero line

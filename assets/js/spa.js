@@ -1,22 +1,25 @@
-const links = document.querySelectorAll('.top-nav a');
-const pages = document.querySelectorAll('.page');
-
-links.forEach(link => {
+document.querySelectorAll('.top-nav a').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
 
-    const page = link.dataset.page;
-    if (!page) return;
+    const page = e.target.dataset.page;
+
+    // 🔥 blokujemy scroll na ułamek sekundy
+    document.body.classList.add("loading");
+    setTimeout(() => document.body.classList.remove("loading"), 300);
+
+    // reset aktywności
+    document.querySelectorAll('.top-nav a').forEach(a =>
+      a.classList.remove("active-link")
+    );
+
+    e.target.classList.add("active-link");
 
     // przełącz sekcję
-    pages.forEach(p => p.classList.remove('active'));
-    document.getElementById(`page-${page}`).classList.add('active');
+    document.querySelectorAll('.page').forEach(p =>
+      p.classList.remove('active')
+    );
 
-    // podświetl aktywny link
-    links.forEach(l => l.classList.remove('active-link'));
-    link.classList.add('active-link');
+    document.getElementById(`page-${page}`).classList.add('active');
   });
 });
-
-// domyślnie – home aktywny
-document.querySelector('.top-nav a[data-page="home"]').classList.add('active-link');
