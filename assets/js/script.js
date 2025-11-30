@@ -41,7 +41,6 @@ const lines = [
   ""
 ];
 
-// generujemy długi pasek kodu
 let block = "";
 for (let i = 0; i < 80; i++) {
   block += lines[i % lines.length] + "\n";
@@ -50,34 +49,30 @@ document.getElementById("scroll-inner").textContent = block.repeat(6);
 
 
 // ===============================
-// MOBILE: podział 4 słów na 4 linie
+// MOBILE – hero title + hero line
 // ===============================
 
 document.addEventListener("DOMContentLoaded", () => {
   if (window.innerWidth > 480) return;
 
+  // 4-linie pod tytułem
   const p = document.getElementById("hero-line");
-  if (!p) return;
+  if (p) {
+    p.innerHTML = `
+      QA Engineer<br>
+      Testowanie<br>
+      Automatyzacje<br>
+      Accessibility
+    `;
+  }
 
-  p.innerHTML = `
-    QA Engineer<br>
-    Testowanie<br>
-    Automatyzacje<br>
-    Accessibility
-  `;
-
-  // MOBILE: rozbijamy nagłówek na 3 linie
-document.addEventListener("DOMContentLoaded", () => {
-  if (window.innerWidth > 480) return;
-
+  // nagłówek w 3 liniach
   const title = document.getElementById("hero-title");
-  if (!title) return;
-
-  title.innerHTML = `
-    Odkrywam to,<br>
-    co nie działa,<br>
-    zanim zrobi to użytkownik.
-  `;
-});
-
+  if (title) {
+    title.innerHTML = `
+      Odkrywam to,<br>
+      co nie działa,<br>
+      zanim zrobi to użytkownik.
+    `;
+  }
 });

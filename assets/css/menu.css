@@ -13,10 +13,10 @@
 
 .top-nav a {
   font-family: Consolas, monospace;
-  color: #00eaff;
+  color: #b57dff;
   text-decoration: none;
   font-size: 16px;
-  border: 1px solid #00eaff;
+  border: 1px solid #b57dff;
   padding: 6px 12px;
   border-radius: 6px;
   transition: 0.2s;
@@ -24,17 +24,17 @@
 }
 
 .top-nav a:hover {
-  background: #00eaff;
+  background: #b57dff;
   color: #000;
   opacity: 1;
-  box-shadow: 0 0 8px #00eaff;
+  box-shadow: 0 0 8px #b57dff;
 }
 
 /* aktywna zakładka */
 .top-nav a.active-link {
-  background: #00eaff;
+  background: #b57dff;
   color: #000;
-  box-shadow: 0 0 8px #00eaff;
+  box-shadow: 0 0 8px #b57dff;
 }
 
 /* MOBILE */
