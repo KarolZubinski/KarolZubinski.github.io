@@ -48,8 +48,8 @@ body {
   font-size: 14px;
   line-height: 18px;
   color: #2affdd;
-  opacity: 0.14;
-  animation: scrollLoop 170s linear infinite;
+  opacity: 0.13;
+  animation: scrollLoop 120s linear infinite;
 }
 
 @keyframes scrollLoop {

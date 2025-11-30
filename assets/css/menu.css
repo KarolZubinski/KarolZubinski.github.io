@@ -1,0 +1,45 @@
+/* ===============================
+   TOP NAV — minimalistyczne neonowe menu
+================================= */
+
+.top-nav {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  gap: 20px;
+  z-index: 9999;
+}
+
+.top-nav a {
+  font-family: Consolas, monospace;
+  color: #00eaff;
+  text-decoration: none;
+  font-size: 18px;
+  border: 1px solid #00eaff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.2s;
+  opacity: 0.9;
+}
+
+.top-nav a:hover {
+  background: #00eaff;
+  color: #000;
+  opacity: 1;
+  box-shadow: 0 0 8px #00eaff;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .top-nav {
+    top: 14px;
+    right: 14px;
+    gap: 10px;
+  }
+
+  .top-nav a {
+    font-size: 15px;
+    padding: 4px 10px;
+  }
+}
