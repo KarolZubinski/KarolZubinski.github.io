@@ -22,15 +22,21 @@ body {
   overflow: hidden;
   pointer-events: none;
 
-  #bg-code {
-  mask-image: linear-gradient(to bottom,
+  mask-image: linear-gradient(
+    to bottom,
     transparent 0%,
-    rgba(0,0,0,1) 10%,
-    rgba(0,0,0,1) 90%,
+    rgba(0, 0, 0, 1) 12%,
+    rgba(0, 0, 0, 1) 88%,
     transparent 100%
   );
-}
 
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 1) 12%,
+    rgba(0, 0, 0, 1) 88%,
+    transparent 100%
+  );
 }
 
 /* przewijający się pasek kodu */
@@ -43,14 +49,17 @@ body {
   line-height: 18px;
   color: #2affdd;
   opacity: 0.14;
-  animation: scrollLoop 100s linear infinite;
+  animation: scrollLoop 170s linear infinite;
 }
 
 @keyframes scrollLoop {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-50%); } /* kluczowe */
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  } /* kluczowe */
 }
-
 
 /* HERO — desktop */
 .hero {
@@ -102,12 +111,11 @@ body {
   }
 
   @media (max-width: 480px) {
-  #scroll-inner {
-    white-space: normal;
-    word-break: break-all;
-    font-size: 12px;
-    line-height: 16px;
+    #scroll-inner {
+      width: 95vw; /* kod nie wyjdzie poza ekran */
+      max-width: 95vw;
+      overflow: hidden; /* ukrywa ewentualne 1–2 px */
+      white-space: pre; /* pozostają czyste linie terminalowe */
+    }
   }
-}
-
 }
