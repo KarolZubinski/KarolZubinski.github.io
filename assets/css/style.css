@@ -2,19 +2,18 @@
    GLOBAL
 ================================= */
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background: #000;
   font-family: Consolas, monospace;
   overflow-x: hidden !important;
-  overflow-y: hidden; /* brak scrolla globalnie */
+  overflow-y: hidden !important;
 }
 
-
-
 /* ===============================
-   TŁO – przewijający się kod
+   BACKGROUND CODE
 ================================= */
 
 #bg-code {
@@ -22,8 +21,8 @@ html, body {
   inset: 0;
   width: 100vw;
   height: 100dvh;
-  overflow: hidden;
   pointer-events: none;
+  overflow: hidden;
 
   mask-image: linear-gradient(
     to bottom,
@@ -45,29 +44,29 @@ html, body {
   position: absolute;
   top: 0;
   left: 0;
-
   white-space: pre;
   font-size: 14px;
   line-height: 18px;
   color: #2affdd;
   opacity: 0.15;
-
   max-width: 100vw;
   overflow: hidden;
 
-  animation: none; /* start OFF → włączy to JS */
+  animation: none; /* włącza to JS w script.js */
   will-change: transform;
 }
 
 @keyframes scrollLoop {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-50%); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
 }
 
-
-
 /* ===============================
-   HERO NA HOME
+   HERO (HOME)
 ================================= */
 
 .hero {
@@ -75,9 +74,7 @@ html, body {
   z-index: 10;
   width: 100%;
   text-align: center;
-
-  /* zamiast problematycznego 26dvh */
-  padding-top: 120px;
+  padding-top: 120px; /* desktop */
 }
 
 #hero-title {
@@ -93,37 +90,51 @@ html, body {
   letter-spacing: 1px;
 }
 
-
-
 /* ===============================
-   MOBILE – (max 480px)
+   MOBILE (max-width 480px)
 ================================= */
 
 @media (max-width: 480px) {
-
-  .hero {
-    padding-top: 100px;
+  /* HOME – wyrównanie do "O mnie" */
+  #page-home .hero {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 0;        /* <<< KLUCZOWE: bez drugiego "górnego" paddingu */
     padding-left: 16px;
     padding-right: 16px;
-  }
-
-@media (max-width: 480px) {
-  #hero-title {
-    font-size: 22px;      /* było 26px — za szerokie */
-    line-height: 1.35;
-    white-space: pre-line; /* wymusza łamanie tylko tam, gdzie masz <br> */
-    word-break: keep-all;
-  }
-}
-
-
-  #hero-line {
-    margin-top: 22px;
-    font-size: 18px;
-    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
+  /* tytuł – 3 linie, bez odstępów */
+  #hero-title {
+    color: transparent !important;  /* ukrywa oryginalny tekst tylko na mobile */
+    font-size: 0 !important;
+    line-height: 0 !important;
+  }
+
+  #hero-title::after {
+    content: "Odkrywam to,\a co nie działa,\a zanim zrobi to użytkownik.";
+    white-space: pre-line;
+    display: block;
+    font-size: 23px;
+    font-weight: bold;
+    line-height: 1.1;      /* ciasno, ale czytelnie */
+    color: #00eaff;
+    text-align: center;
+  }
+
+  /* 4 linie pod spodem */
+  #hero-line {
+    margin-top: 22px;
+    font-size: 18px;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  /* tło dopasowane do mobile */
   #scroll-inner {
     font-size: 12px;
     line-height: 16px;
@@ -131,10 +142,8 @@ html, body {
   }
 }
 
-
-
 /* ===============================
-   FIX: usunięcie pionowego scrolla
+   FIX — brak scrolla w SPA
 ================================= */
 
 body.loading,
@@ -150,30 +159,3 @@ html.no-scroll,
 html.no-scroll body {
   overflow: hidden !important;
 }
-
-/* ===============================
-   MOBILE FIX — wyrównanie HOME
-================================= */
-@media (max-width: 480px) {
-
-  /* ustaw taką samą szerokość jak .inner-page */
-  #page-home .hero {
-    max-width: 800px;        /* tyle samo co inner-page */
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 16px;
-  }
-
-  /* poprawa pozycji tytułu */
-  #page-home #hero-title {
-    text-align: center;
-    width: 100%;
-  }
-
-  /* poprawa pozycji 4 linijek */
-  #page-home #hero-line {
-    text-align: center;
-    width: 100%;
-  }
-}
-
