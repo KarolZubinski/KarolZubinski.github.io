@@ -1,6 +1,7 @@
 // ===============================
 // LINIJKI KODU W TLE
 // ===============================
+
 // Usunięcie blokady scrolla po pełnym renderze
 window.addEventListener("load", () => {
   document.documentElement.classList.remove("no-scroll");
@@ -51,31 +52,46 @@ for (let i = 0; i < 80; i++) {
 }
 document.getElementById("scroll-inner").textContent = block.repeat(6);
 
+
+
 // ===============================
 // MOBILE – hero title + hero line
 // ===============================
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (window.innerWidth > 480) return;
+  if (window.innerWidth <= 480) {
+    // 4-linie pod tytułem
+    const p = document.getElementById("hero-line");
+    if (p) {
+      p.innerHTML = `
+        QA Engineer<br>
+        Testowanie<br>
+        Automatyzacje<br>
+        Accessibility
+      `;
+    }
 
-  // 4-linie pod tytułem
-  const p = document.getElementById("hero-line");
-  if (p) {
-    p.innerHTML = `
-      QA Engineer<br>
-      Testowanie<br>
-      Automatyzacje<br>
-      Accessibility
-    `;
+    // nagłówek w 3 liniach
+    const title = document.getElementById("hero-title");
+    if (title) {
+      title.innerHTML = `
+        Odkrywam to,<br>
+        co nie działa,<br>
+        zanim zrobi to użytkownik.
+      `;
+    }
   }
+});
 
-  // nagłówek w 3 liniach
-  const title = document.getElementById("hero-title");
-  if (title) {
-    title.innerHTML = `
-      Odkrywam to,<br>
-      co nie działa,<br>
-      zanim zrobi to użytkownik.
-    `;
-  }
+
+
+// ===============================
+// WŁĄCZENIE ANIMACJI TŁA (DESKTOP + MOBILE)
+// ===============================
+
+window.addEventListener("load", () => {
+  const el = document.getElementById("scroll-inner");
+
+  // start animacji dopiero po załadowaniu layoutu
+  el.style.animation = "scrollLoop 140s linear infinite";
 });

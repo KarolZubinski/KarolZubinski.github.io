@@ -7,7 +7,8 @@ html, body {
   padding: 0;
   background: #000;
   font-family: Consolas, monospace;
-  overflow-x: hidden !important; /* fix scroll poziomy */
+  overflow-x: hidden !important;
+  overflow-y: hidden; /* brak scrolla globalnie */
 }
 
 
@@ -44,14 +45,18 @@ html, body {
   position: absolute;
   top: 0;
   left: 0;
+
   white-space: pre;
   font-size: 14px;
   line-height: 18px;
   color: #2affdd;
   opacity: 0.15;
-  animation: scrollLoop 140s linear infinite;
-  max-width: 100vw;     /* fix */
-  overflow: hidden;      /* fix */
+
+  max-width: 100vw;
+  overflow: hidden;
+
+  animation: none; /* start OFF → włączy to JS */
+  will-change: transform;
 }
 
 @keyframes scrollLoop {
@@ -70,8 +75,9 @@ html, body {
   z-index: 10;
   width: 100%;
   text-align: center;
-  margin-top: 26dvh;
-  padding: 0 20px;
+
+  /* zamiast problematycznego 26dvh */
+  padding-top: 120px;
 }
 
 #hero-title {
@@ -94,12 +100,11 @@ html, body {
 ================================= */
 
 @media (max-width: 480px) {
-  
-  /* HERO */
-@media (max-width: 480px) {
+
   .hero {
-    margin-top: 80px;     /* zamiast 20vh */
-    padding: 0 16px;
+    padding-top: 100px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   #hero-title {
@@ -114,19 +119,18 @@ html, body {
     line-height: 1.5;
     text-align: center;
   }
-}
-
 
   #scroll-inner {
     font-size: 12px;
     line-height: 16px;
-    max-width: 90vw;   /* jeszcze większa pewność */
+    max-width: 90vw;
   }
 }
 
+
+
 /* ===============================
    FIX: usunięcie pionowego scrolla
-   podczas zmiany sekcji SPA
 ================================= */
 
 body.loading,
@@ -135,13 +139,37 @@ body.loading * {
 }
 
 .page {
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden !important;
 }
 
 html.no-scroll,
 html.no-scroll body {
   overflow: hidden !important;
-  height: 100%;
+}
+
+/* ===============================
+   MOBILE FIX — wyrównanie HOME
+================================= */
+@media (max-width: 480px) {
+
+  /* ustaw taką samą szerokość jak .inner-page */
+  #page-home .hero {
+    max-width: 800px;        /* tyle samo co inner-page */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 16px;
+  }
+
+  /* poprawa pozycji tytułu */
+  #page-home #hero-title {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* poprawa pozycji 4 linijek */
+  #page-home #hero-line {
+    text-align: center;
+    width: 100%;
+  }
 }
 
