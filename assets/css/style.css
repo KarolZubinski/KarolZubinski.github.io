@@ -107,11 +107,15 @@ html, body {
     padding-right: 16px;
   }
 
+@media (max-width: 480px) {
   #hero-title {
-    font-size: 26px;
-    line-height: 1.3;
-    text-align: center;
+    font-size: 22px;      /* było 26px — za szerokie */
+    line-height: 1.35;
+    white-space: pre-line; /* wymusza łamanie tylko tam, gdzie masz <br> */
+    word-break: keep-all;
   }
+}
+
 
   #hero-line {
     margin-top: 22px;
