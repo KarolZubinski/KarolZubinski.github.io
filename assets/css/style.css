@@ -2,15 +2,14 @@
    GLOBAL
 ================================= */
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
   background: #000;
   font-family: Consolas, monospace;
-  overflow-x: hidden !important;
-  overflow-y: hidden !important;
+  overflow: hidden !important;
 }
+
 
 /* ===============================
    BACKGROUND CODE
@@ -27,15 +26,8 @@ body {
   mask-image: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(0, 0, 0, 1) 12%,
-    rgba(0, 0, 0, 1) 88%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 1) 12%,
-    rgba(0, 0, 0, 1) 88%,
+    rgba(0,0,0,1) 12%,
+    rgba(0,0,0,1) 88%,
     transparent 100%
   );
 }
@@ -52,29 +44,31 @@ body {
   max-width: 100vw;
   overflow: hidden;
 
-  animation: none; /* włącza to JS w script.js */
+  animation: none;
   will-change: transform;
 }
 
 @keyframes scrollLoop {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-50%);
-  }
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
 }
 
+
 /* ===============================
-   HERO (HOME)
+   HOME HERO — TERAZ JAK .inner-page
 ================================= */
 
-.hero {
-  position: relative;
-  z-index: 10;
-  width: 100%;
+#page-home .hero {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 100px;    /* identycznie jak .page */
+  padding-left: 16px;
+  padding-right: 16px;
+
   text-align: center;
-  padding-top: 120px; /* desktop */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #hero-title {
@@ -84,57 +78,53 @@ body {
 }
 
 #hero-line {
-  margin-top: 16px;
+  margin-top: 22px;
   color: #b57dff;
   font-size: 20px;
   letter-spacing: 1px;
+  line-height: 1.5;
 }
 
-/* ===============================
-   MOBILE (max-width 480px)
+
+   /* ===============================
+   MOBILE — max-width 480px
 ================================= */
 
 @media (max-width: 480px) {
-  /* HOME – wyrównanie do "O mnie" */
+
+  /* HOME wyrównany do .page h1 */
   #page-home .hero {
-    max-width: 800px;
-    margin: 0 auto;
-    padding-top: 0;        /* <<< KLUCZOWE: bez drugiego "górnego" paddingu */
-    padding-left: 16px;
-    padding-right: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    padding-top: 80px; /* tyle samo co .page (przez padding 80px w pages.css) */
   }
 
-  /* tytuł – 3 linie, bez odstępów */
+  /* --- 3 linie BEZ odstępów --- */
   #hero-title {
-    color: transparent !important;  /* ukrywa oryginalny tekst tylko na mobile */
-    font-size: 0 !important;
-    line-height: 0 !important;
+    font-size: 0 !important; /* ukrywa oryginalny tekst */
+    position: relative;
+    margin-top: 0 !important;   /* <<< KLUCZOWE */
   }
 
   #hero-title::after {
     content: "Odkrywam to,\a co nie działa,\a zanim zrobi to użytkownik.";
     white-space: pre-line;
-    display: block;
-    font-size: 23px;
+    font-size: 22px;
     font-weight: bold;
-    line-height: 1.1;      /* ciasno, ale czytelnie */
     color: #00eaff;
+    line-height: 1.1;
     text-align: center;
+    display: block;
+
+    margin-top: 0 !important;  /* <<< USUWA przesunięcie */
+    padding-top: 0 !important; /* <<< USUWA przesunięcie */
   }
 
-  /* 4 linie pod spodem */
+  /* 4-linijkowy podpis */
   #hero-line {
-    margin-top: 22px;
+    margin-top: 20px;
     font-size: 18px;
-    line-height: 1.35;
-    text-align: center;
+    line-height: 1.3;
   }
 
-  /* tło dopasowane do mobile */
   #scroll-inner {
     font-size: 12px;
     line-height: 16px;
