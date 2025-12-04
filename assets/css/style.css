@@ -54,20 +54,34 @@ html, body {
 
 
 /* ===============================
-   HOME
+   HOME — WYRÓWNANE DO .PAGE
 ================================= */
 
+/* Home zachowuje się jak każda inna sekcja .page */
+#page-home {
+  padding: 100px 16px;
+  min-height: 100dvh;
+  box-sizing: border-box;
+}
+
+/* Mobile jak w pages.css */
+@media (max-width: 480px) {
+  #page-home {
+    padding: 80px 12px;
+  }
+}
+
+/* inner-page bez dodatkowych przesunięć */
 #page-home .inner-page {
   max-width: 800px;
   margin: 0 auto;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 0 !important; /* <-- KLUCZOWE WYRÓWNANIE DO 'O MNIE' */
+  padding: 0 16px;
   text-align: center;
 }
 
+/* KLUCZOWA RÓŻNICA — dodajemy margin-top jak ma normalne h1 */
 #hero-title {
-  margin: 0;
+  margin: 27px 0 0 0;  /* teraz HOME == O MNIE */
   color: #00eaff;
   font-size: 48px;
   font-weight: bold;
@@ -81,21 +95,16 @@ html, body {
   letter-spacing: 1px;
 }
 
-
 /* ===============================
-   MOBILE — max-width 480px
+   MOBILE — HERO RESPONSYWNY
 ================================= */
 
 @media (max-width: 480px) {
 
-  /* Wyrównanie HOME do 'O MNIE' również na mobile */
-  #page-home .inner-page {
-    padding-top: 0 !important;
-  }
-
+  /* Na mobile również dodajemy margines 20px jak w normalnym h1 */
   #hero-title {
     font-size: 0 !important;
-    margin: 0 !important;
+    margin-top: 27px !important;
     position: relative;
   }
 
@@ -107,9 +116,8 @@ html, body {
     font-weight: bold;
     color: #00eaff;
     line-height: 1.1;
-    text-align: center;
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
   }
 
   #hero-line {
@@ -123,25 +131,6 @@ html, body {
     line-height: 16px;
     max-width: 90vw;
   }
-}
-
-/* === Ujednolicenie HOME z innymi stronami === */
-
-#page-home {
-  padding: 100px 16px !important;
-  min-height: 100dvh;
-  box-sizing: border-box;
-}
-
-@media (max-width: 480px) {
-  #page-home {
-    padding: 80px 12px !important;
-  }
-}
-
-/* Zostawiamy to, aby hero nie miał dodatkowego przesunięcia */
-#page-home .inner-page {
-  padding-top: 0 !important;
 }
 
 
