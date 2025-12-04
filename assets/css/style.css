@@ -54,20 +54,20 @@ html, body {
 
 
 /* ===============================
-   HOME — teraz jak .page
+   HOME
 ================================= */
 
 #page-home .inner-page {
   max-width: 800px;
   margin: 0 auto;
-  padding-top: 100px;     /* identycznie jak w .page */
   padding-left: 16px;
   padding-right: 16px;
+  padding-top: 0 !important; /* <-- KLUCZOWE WYRÓWNANIE DO 'O MNIE' */
   text-align: center;
 }
 
 #hero-title {
-  margin: 0;              /* usuwa różnicę 20px */
+  margin: 0;
   color: #00eaff;
   font-size: 48px;
   font-weight: bold;
@@ -88,8 +88,9 @@ html, body {
 
 @media (max-width: 480px) {
 
+  /* Wyrównanie HOME do 'O MNIE' również na mobile */
   #page-home .inner-page {
-    padding-top: 80px;    /* identycznie jak .page mobile */
+    padding-top: 0 !important;
   }
 
   #hero-title {
@@ -122,6 +123,25 @@ html, body {
     line-height: 16px;
     max-width: 90vw;
   }
+}
+
+/* === Ujednolicenie HOME z innymi stronami === */
+
+#page-home {
+  padding: 100px 16px !important;
+  min-height: 100dvh;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  #page-home {
+    padding: 80px 12px !important;
+  }
+}
+
+/* Zostawiamy to, aby hero nie miał dodatkowego przesunięcia */
+#page-home .inner-page {
+  padding-top: 0 !important;
 }
 
 
