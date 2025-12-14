@@ -1,19 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
   const photoBox = document.getElementById("contactPhoto");
-  let dimTimeout;
-
   if (!photoBox) return;
 
-  photoBox.addEventListener("click", () => {
-    // odsłoń zdjęcie
-    photoBox.classList.remove("dimmed");
+  const wrapper = photoBox.querySelector(".photo-wrapper");
+  let dimTimeout;
 
-    // reset licznika
+  wrapper.addEventListener("click", () => {
+    wrapper.classList.remove("dimmed");
     clearTimeout(dimTimeout);
 
-    // po 15 sekundach znowu przygaś
     dimTimeout = setTimeout(() => {
-      photoBox.classList.add("dimmed");
+      wrapper.classList.add("dimmed");
     }, 15000);
   });
 });
