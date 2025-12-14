@@ -1,0 +1,84 @@
+/* ===============================
+   TECH STACK – GRID
+================================= */
+
+#page-about .tech-stack {
+  margin-top: 40px;
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+
+  justify-items: center;
+
+  overflow: visible; /* ⬅️ KLUCZOWE */
+}
+
+/* POJEDYNCZY ELEMENT */
+.tech-item {
+  position: relative;
+  z-index: 1; /* ⬅️ BAZOWY POZIOM */
+}
+
+/* IKONA */
+.tech-item img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+/* ===============================
+   DESKTOP ONLY (HOVER)
+================================= */
+@media (hover: hover) and (pointer: fine) {
+
+  /* PODNOSIMY CAŁY ELEMENT */
+  .tech-item:hover {
+    z-index: 20; /* ⬅️ NAJWAŻNIEJSZE */
+  }
+
+  /* ZOOM ×3 */
+  .tech-item:hover img {
+    transform: scale(3);
+  }
+
+  /* TOOLTIP */
+  .tech-item::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -36px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: rgba(0, 0, 0, 0.85);
+    color: #00eaff;
+    padding: 4px 10px;
+
+    font-size: 12px;
+    white-space: nowrap;
+    border-radius: 6px;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .tech-item:hover::after {
+    opacity: 1;
+  }
+}
+
+/* ===============================
+   MOBILE / TABLET
+================================= */
+@media (max-width: 768px) {
+  #page-about .tech-stack {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 300px;
+  }
+}
