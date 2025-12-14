@@ -8,10 +8,48 @@
 
 /* 👉 TUTAJ STERUJESZ ROZMIAREM */
 #page-contact .contact-photo img {
-  width: 60%;          /* ⬅️ ZMIENIASZ TEN PROCENT */
-  max-width: 420px;    /* ⬅️ ALBO TEN LIMIT (px) */
+  width: 57%;          /* ⬅️ ZMIENIASZ TEN PROCENT */
+  max-width: 400px;    /* ⬅️ ALBO TEN LIMIT (px) */
   height: auto;
 
   border-radius: 12px; /* ⬅️ ZAOKRĄGLENIE ROGÓW */
   box-shadow: 0 0 14px rgba(0, 234, 255, 0.4);
+}
+
+/* PRZYGASZENIE */
+#page-contact .contact-photo.dimmed img {
+  filter: brightness(40%);
+}
+
+/* OVERLAY */
+#page-contact .photo-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #00eaff;
+  font-family: Consolas, monospace;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* OVERLAY WIDOCZNY GDY PRZYGASZONE */
+#page-contact .contact-photo.dimmed .photo-overlay {
+  opacity: 1;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  #page-contact .contact-photo img {
+    width: 85%;
+    max-width: 300px;
+  }
 }
