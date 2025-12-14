@@ -10,6 +10,17 @@ html, body {
   overflow: hidden !important;
 }
 
+/* ===============================
+   GLOBAL IMG RESET
+================================= */
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
 
 /* ===============================
    BACKGROUND CODE

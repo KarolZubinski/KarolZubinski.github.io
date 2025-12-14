@@ -1,0 +1,17 @@
+/* CONTACT PHOTO – RECTANGLE */
+
+#page-contact .contact-photo {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+/* 👉 TUTAJ STERUJESZ ROZMIAREM */
+#page-contact .contact-photo img {
+  width: 60%;          /* ⬅️ ZMIENIASZ TEN PROCENT */
+  max-width: 420px;    /* ⬅️ ALBO TEN LIMIT (px) */
+  height: auto;
+
+  border-radius: 12px; /* ⬅️ ZAOKRĄGLENIE ROGÓW */
+  box-shadow: 0 0 14px rgba(0, 234, 255, 0.4);
+}
