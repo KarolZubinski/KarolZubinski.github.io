@@ -7,16 +7,14 @@
   position: relative;
   z-index: 5;
 
-  /* 🔥 kluczowe — brak flickera */
   min-height: 100dvh;
   box-sizing: border-box;
 
   padding: 100px 16px;
   text-align: center;
-  animation: fade 0.4s ease;
 
+  animation: fade 0.4s ease;
   max-width: 100vw;
-  overflow-x: hidden; /* dodatkowe zabezpieczenie */
 }
 
 .page.active {
@@ -52,8 +50,7 @@
 }
 
 /* ===============================
-   ANIMACJA — BEZ translateY
-   (to usuwa flicker scrolla!)
+   ANIMACJA
 ================================= */
 
 @keyframes fade {
@@ -85,10 +82,20 @@
 
 .about-list li {
   margin-bottom: 10px;
-  padding-left: 44px; /* ⬅️ delikatny oddech */
+  padding-left: 44px;
   font-size: 18px;
   color: #b57dff;
   font-family: Consolas, monospace;
+}
+
+/* ===============================
+   ABOUT – SCROLL FIX
+================================= */
+
+/* TYLKO sekcja "O mnie" może się scrollować */
+#page-about.page.active {
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 
@@ -97,11 +104,8 @@
 ================================= */
 
 @media (max-width: 480px) {
-
   .page {
     padding: 80px 12px;
-    min-height: 100dvh; /* ponownie — kluczowe */
-    max-width: 100vw;
   }
 
   .page h1 {

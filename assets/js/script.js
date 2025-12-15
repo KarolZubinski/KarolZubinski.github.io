@@ -52,15 +52,12 @@ for (let i = 0; i < 80; i++) {
 }
 document.getElementById("scroll-inner").textContent = block.repeat(6);
 
-
-
 // ===============================
-// MOBILE – hero title + hero line
+// MOBILE – HERO
 // ===============================
 
 document.addEventListener("DOMContentLoaded", () => {
   if (window.innerWidth <= 480) {
-    // 4-linie pod tytułem
     const p = document.getElementById("hero-line");
     if (p) {
       p.innerHTML = `
@@ -71,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }
 
-    // nagłówek w 3 liniach
     const title = document.getElementById("hero-title");
     if (title) {
       title.innerHTML = `
@@ -83,15 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
-
 // ===============================
-// WŁĄCZENIE ANIMACJI TŁA (DESKTOP + MOBILE)
+// START BACKGROUND ANIMATION
 // ===============================
 
 window.addEventListener("load", () => {
   const el = document.getElementById("scroll-inner");
-
-  // start animacji dopiero po załadowaniu layoutu
   el.style.animation = "scrollLoop 140s linear infinite";
 });
