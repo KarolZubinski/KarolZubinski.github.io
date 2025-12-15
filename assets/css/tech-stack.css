@@ -82,3 +82,16 @@
     max-width: 300px;
   }
 }
+
+/* ===============================
+   MOBILE – HIDE LAST TECH ICON
+================================= */
+
+@media (max-width: 768px) {
+
+  .tech-stack .tech-item:last-child {
+    display: none;
+  }
+
+}
+
