@@ -2,7 +2,8 @@
    GLOBAL
 ================================= */
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background: #000;
@@ -37,8 +38,8 @@ img {
   mask-image: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(0,0,0,1) 12%,
-    rgba(0,0,0,1) 88%,
+    rgba(0, 0, 0, 1) 12%,
+    rgba(0, 0, 0, 1) 88%,
     transparent 100%
   );
 }
@@ -131,7 +132,7 @@ img {
   overflow: hidden;
 }
 
-/* 👉 TYLKO ABOUT MA SCROLL */
+/* DESKTOP – normalne zachowanie */
 #page-about.page.active {
   height: 100dvh;
   overflow-y: auto;
@@ -147,3 +148,24 @@ img {
   background: #00eaff;
   border-radius: 4px;
 }
+
+
+
+/* ===============================
+   MOBILE / TABLET – FIX POD MENU
+================================= */
+
+@media (max-width: 768px) {
+
+  #page-about.page.active {
+    height: calc(100dvh - 40px); /* wysokość menu */
+    margin-top: 50px;            /* odsunięcie treści */
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 34px;
+  }
+
+}
+
+
+
