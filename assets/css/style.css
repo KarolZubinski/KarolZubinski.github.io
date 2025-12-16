@@ -48,14 +48,14 @@ img {
   position: absolute;
   top: 0;
   left: 0;
+
   white-space: pre;
   font-size: 14px;
   line-height: 18px;
   color: #2affdd;
   opacity: 0.15;
-  max-width: 100vw;
-  overflow: hidden;
-  animation: none;
+
+  animation: scrollLoop 140s linear infinite;
   will-change: transform;
 }
 
@@ -124,48 +124,59 @@ img {
 }
 
 /* ===============================
-   SPA FIX
+   SPA – SCROLL LOGIC
 ================================= */
 
-/* sekcje domyślnie BEZ scrolla */
+/* domyślnie sekcje BEZ scrolla */
 .page {
   overflow: hidden;
 }
 
-/* DESKTOP – normalne zachowanie */
+/* ABOUT – scroll */
 #page-about.page.active {
   height: 100dvh;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-/* scrollbar (opcjonalnie, ale ładnie) */
-#page-about::-webkit-scrollbar {
+/* CONTACT – scroll */
+#page-contact.page.active {
+  height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ===============================
+   SCROLLBAR (ABOUT + CONTACT)
+================================= */
+
+#page-about::-webkit-scrollbar,
+#page-contact::-webkit-scrollbar {
   width: 6px;
 }
 
-#page-about::-webkit-scrollbar-thumb {
+#page-about::-webkit-scrollbar-thumb,
+#page-contact::-webkit-scrollbar-thumb {
   background: #00eaff;
   border-radius: 4px;
 }
 
-
-
 /* ===============================
-   MOBILE / TABLET – FIX POD MENU
+   MOBILE / TABLET – OFFSET POD MENU
 ================================= */
 
 @media (max-width: 768px) {
 
-  #page-about.page.active {
-    height: calc(100dvh - 40px); /* wysokość menu */
-    margin-top: 50px;            /* odsunięcie treści */
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-top: 34px;
+  #page-about.page.active,
+  #page-contact.page.active {
+    padding-top: 34px; /* sprawdzona wartość */
   }
 
 }
+
+/* ===============================
+   BACKGROUND ANIMATION
+================================= */
 
 @keyframes scrollLoop {
   from {
@@ -175,5 +186,3 @@ img {
     transform: translateY(-50%);
   }
 }
-
-
