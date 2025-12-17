@@ -162,17 +162,19 @@ img {
 }
 
 /* ===============================
-   MOBILE / TABLET – OFFSET POD MENU
+   MOBILE – SAFE SCROLL POD MENU
 ================================= */
+
 
 @media (max-width: 768px) {
 
   #page-about.page.active,
   #page-contact.page.active {
-    padding-top: 34px; /* sprawdzona wartość */
+    padding-top: 64px;
   }
 
 }
+
 
 /* ===============================
    BACKGROUND ANIMATION

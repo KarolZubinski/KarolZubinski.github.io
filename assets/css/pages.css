@@ -116,3 +116,22 @@
     font-size: 16px;
   }
 }
+
+/* ===============================
+   MOBILE – ABOUT LIST LEFT ALIGN
+================================= */
+
+@media (max-width: 768px) {
+
+  .about-list {
+    margin-left: 0;     /* nie centruj */
+    margin-right: 0;
+    max-width: 100%;    /* pełna szerokość */
+  }
+
+  .about-list li {
+    padding-left: 16px; /* myślniki równo od lewej */
+  }
+
+}
+
