@@ -5,7 +5,7 @@
 .courses {
   max-width: 700px;
   margin: 0 auto;          /* centrowanie całej sekcji */
-  padding-left: 64px;     /* optyczny środek = biały tekst */
+  padding-left: 48px;     /* optyczny środek = biały tekst */
 }
 
 /* pojedynczy kurs */
@@ -42,3 +42,53 @@
   font-size: 14px;
   color: #9aa4b2;
 }
+/* CERTIFICATE TAG */
+.cert-tag {
+  position: relative;
+  margin-left: 8px;
+  color: #00eaff;
+  cursor: pointer;
+}
+
+/* hidden cert image */
+.cert-tag img {
+  position: absolute;
+  top: 140%;
+  left: 0;
+
+  width: 260px;
+  max-width: 80vw;
+
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(0, 234, 255, 0.35);
+
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 7000;
+}
+
+/* show on hover */
+.cert-tag:hover img {
+  opacity: 1;
+  transform: scale(2);
+}
+
+.cert-tag img {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(0, 234, 255, 0.35);
+}
+
+/* disable hover preview on mobile */
+@media (max-width: 768px) {
+  .cert-tag img {
+    display: none;
+  }
+}
+
+
+
