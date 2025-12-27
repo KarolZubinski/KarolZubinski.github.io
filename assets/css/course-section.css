@@ -73,7 +73,7 @@
 /* show on hover */
 .cert-tag:hover img {
   opacity: 1;
-  transform: scale(2);
+  transform: scale(1.5);
 }
 
 .cert-tag img {
