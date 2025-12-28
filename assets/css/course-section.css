@@ -4,8 +4,8 @@
 
 .courses {
   max-width: 700px;
-  margin: 0 auto;          /* centrowanie całej sekcji */
-  padding-left: 96px;     /* optyczny środek = biały tekst */
+  margin: 0 auto; /* centrowanie całej sekcji */
+  padding-left: 96px; /* optyczny środek = biały tekst */
 }
 
 /* pojedynczy kurs */
@@ -24,7 +24,7 @@
 /* rok – wysunięty w lewo */
 .course-year {
   min-width: 48px;
-  margin-left: -64px;     /* WYCIĄGAMY ROK POZA ŚRODEK */
+  margin-left: -64px; /* WYCIĄGAMY ROK POZA ŚRODEK */
   text-align: right;
   font-size: 14px;
   color: #9aa4b2;
@@ -88,7 +88,44 @@
   .cert-tag img {
     display: none;
   }
+
+  /* ===============================
+   COURSES – MOBILE FIX
+================================= */
+
+  @media (max-width: 768px) {
+    /* reset desktop offsetów */
+    .courses {
+      padding-left: 0;
+    }
+
+    .course-year {
+      margin-left: 0;
+      min-width: auto;
+      text-align: left;
+    }
+
+    .course-header {
+      gap: 12px;
+    }
+
+    /* tagi jako klocki */
+    .course-tags {
+      margin-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 8px;
+    }
+
+    /* każdy tag niełamliwy */
+    .course-tags span,
+    .course-tags a {
+      white-space: nowrap;
+    }
+
+    /* cert tag też jak klocek */
+    .cert-tag {
+      margin-left: 0;
+    }
+  }
 }
-
-
-
