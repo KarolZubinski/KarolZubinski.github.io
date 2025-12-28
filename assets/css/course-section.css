@@ -5,7 +5,7 @@
 .courses {
   max-width: 700px;
   margin: 0 auto;          /* centrowanie całej sekcji */
-  padding-left: 48px;     /* optyczny środek = biały tekst */
+  padding-left: 96px;     /* optyczny środek = biały tekst */
 }
 
 /* pojedynczy kurs */
