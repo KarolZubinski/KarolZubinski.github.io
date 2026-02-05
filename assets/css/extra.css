@@ -20,7 +20,7 @@
 }
 
 /* ⭐ KLUCZOWE — centrowanie kart */
-#page-extra .course {
+#page-extra .events {
   width: fit-content;      /* zamiast 100% */
   margin: 0 auto 24px;     /* centrowanie poziome */
   text-align: center;
@@ -48,3 +48,16 @@
   scrollbar-width: thin;
 }
 
+
+/* reset hacka z About */
+#page-extra .events-year {
+  margin-left: 0;        /* usuń -64px */
+  min-width: 70px;       /* stała kolumna */
+  text-align: right;
+}
+
+
+#page-extra .course-name {
+  text-align: center;
+  width: 100%;
+}
