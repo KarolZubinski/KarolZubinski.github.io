@@ -1,0 +1,50 @@
+/* ===============================
+   EXTRA PAGE
+================================= */
+
+/* scroll */
+#page-extra.page.active {
+  overflow-y: auto;
+}
+
+/* kolumna strony */
+#page-extra .inner-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* wrapper */
+#page-extra .events {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ⭐ KLUCZOWE — centrowanie kart */
+#page-extra .course {
+  width: fit-content;      /* zamiast 100% */
+  margin: 0 auto 24px;     /* centrowanie poziome */
+  text-align: center;
+}
+
+/* ===============================
+   SCROLLBAR
+================================= */
+
+#page-extra::-webkit-scrollbar {
+  width: 8px;
+}
+
+#page-extra::-webkit-scrollbar-track {
+  background: #111;
+}
+
+#page-extra::-webkit-scrollbar-thumb {
+  background: #00eaff;
+  border-radius: 10px;
+}
+
+#page-extra {
+  scrollbar-color: #00eaff #111;
+  scrollbar-width: thin;
+}
+
