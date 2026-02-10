@@ -61,3 +61,8 @@
   text-align: center;
   width: 100%;
 }
+
+#page-extra.page.active {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* płynny iOS */
+}

@@ -205,3 +205,5 @@ body::before {
   z-index: 5000; /* niżej niż menu, wyżej niż bg-code */
   pointer-events: none;
 }
+
+

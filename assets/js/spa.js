@@ -8,9 +8,7 @@ document.querySelectorAll('.top-nav a').forEach(link => {
 
     const page = e.target.dataset.page;
 
-    // krótki lock scrolla (tylko body)
-    document.body.classList.add("loading");
-    setTimeout(() => document.body.classList.remove("loading"), 300);
+
 
     // reset aktywnego linku
     document.querySelectorAll('.top-nav a').forEach(a =>
