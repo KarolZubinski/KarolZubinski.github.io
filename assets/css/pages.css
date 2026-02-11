@@ -140,3 +140,10 @@
     padding-left: 16px;
   }
 }
+
+#hero-line {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
