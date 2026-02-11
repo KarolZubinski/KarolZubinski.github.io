@@ -141,9 +141,21 @@
   }
 }
 
-#hero-line {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+/* desktop */
+#hero-line span {
+  display: inline;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  #hero-line {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  #hero-line span {
+    display: block;
+  }
 }
 
