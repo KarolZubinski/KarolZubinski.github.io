@@ -159,3 +159,14 @@
   }
 }
 
+#hero-line span:not(:last-child)::after {
+  content: " • ";
+}
+
+@media (max-width: 768px) {
+  #hero-line span::after {
+    content: "";
+  }
+}
+
+
